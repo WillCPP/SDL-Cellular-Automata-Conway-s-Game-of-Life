@@ -1,0 +1,9 @@
+﻿  entity.cpp
+  main.cpp
+  app.cpp
+  player.cpp
+  Generating code
+  All 23 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SDL_sandbox.vcxproj -> C:\Users\Will\documents\visual studio 2015\Projects\SDL_sandbox\Release\SDL_sandbox.exe
+  SDL_sandbox.vcxproj -> C:\Users\Will\documents\visual studio 2015\Projects\SDL_sandbox\Release\SDL_sandbox.pdb (Full PDB)
