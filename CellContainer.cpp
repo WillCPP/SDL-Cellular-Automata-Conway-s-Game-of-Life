@@ -1,12 +1,11 @@
 #include "CellContainer.h"
-
-
+#include <vector>
+using namespace std;
 
 CellContainer::CellContainer()
 {
 	this->initializeVector();
 }
-
 
 CellContainer::~CellContainer()
 {
@@ -18,6 +17,7 @@ void CellContainer::initializeVector()
 
 	new_cell->setColor(0xFFFFFFFF); // change to 0xFFFFFFFF
 	new_cell->setPop(false);
+	new_cell->setNextPop(false);
 
 	for (int i = 0; i < 38; i++)
 	{
@@ -39,7 +39,7 @@ void CellContainer::checkNeighbors()
 	{
 		count = 0;
 		//check if cell is top row, bottom row, first column or last column
-			//check neighbors
+		//check neighbors
 		if (i > 0 && i < 49) //top row
 		{
 			if (this->cell_vec[i - 1].getPop() == true) //check left
@@ -86,13 +86,13 @@ void CellContainer::checkNeighbors()
 				count++;
 			}
 		}
-		else if (i%50 == 0) //first column
+		else if (i%50 == 0 && (i != 0 && i != 1850)) //first column
 		{
 			if (this->cell_vec[i + 1].getPop() == true) //check right
 			{
 				count++;
 			}
-			if (this->cell_vec[i - 49].getPop() == true) //check above diagonal right
+			if (i > 49 && this->cell_vec[i - 49].getPop() == true) //check above diagonal right
 			{
 				count++;
 			}
@@ -101,13 +101,13 @@ void CellContainer::checkNeighbors()
 				count++;
 			}
 		}
-		else if (i%50 == 49) //last column
+		else if (i%50 == 49 && (i != 49 && i != 1899)) //last column //something in here causes abort
 		{
 			if (this->cell_vec[i - 1].getPop() == true) //check left
 			{
 				count++;
 			}
-			if (this->cell_vec[i - 51].getPop() == true) //check above diagonal left
+			if (i > 51 && this->cell_vec[i - 51].getPop() == true) //check above diagonal left
 			{
 				count++;
 			}
@@ -212,13 +212,55 @@ void CellContainer::checkNeighbors()
 				count++;
 			}
 		}
-		if (count >= 3) //change pop rules
+		if ((count == 2 || count == 3) && this->cell_vec[i].getPop() == true) //change pop rules
 		{
-			this->cell_vec[i].setPop(true);
+			this->cell_vec[i].setNextPop(true);
+		}
+		else if (count < 2 && this->cell_vec[i].getPop() == true)
+		{
+			this->cell_vec[i].setNextPop(false);
+		}
+		else if (count > 3 && this->cell_vec[i].getPop() == true)
+		{
+			this->cell_vec[i].setNextPop(false);
+		}
+		else if(count == 3 && this->cell_vec[i].getPop() == false)
+		{
+			this->cell_vec[i].setNextPop(true);
+		}
+	}
+
+	for (int i = 0; i < this->cell_vec.size(); i++)
+	{
+		this->cell_vec[i].setPop(this->cell_vec[i].getNextPop());
+	}
+}
+
+void CellContainer::setVecColor()
+{
+	for (int i = 0; i < this->cell_vec.size(); i++)
+	{
+		if (cell_vec[i].getPop() == true)
+		{
+			cell_vec[i].setColor(0xFF000000);
 		}
 		else
 		{
-			this->cell_vec[i].setPop(false);
+			cell_vec[i].setColor(0xFFFFFFFF);
 		}
+	}
+}
+
+void CellContainer::setCellPop(entity* ent)
+{
+	int index = (ent->getY()/16)*50 + (ent->getX()/16);
+
+	if (cell_vec[index].getPop() == false)
+	{
+		cell_vec[index].setPop(true);
+	}
+	else
+	{
+		cell_vec[index].setPop(false);
 	}
 }

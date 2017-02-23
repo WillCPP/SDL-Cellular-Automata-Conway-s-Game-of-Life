@@ -10,8 +10,9 @@ public:
 	~CellContainer();
 
 	void initializeVector();
-
 	void checkNeighbors();
+	void setVecColor();
+	void setCellPop(entity*);
 
 	vector<cell> cell_vec;
 };

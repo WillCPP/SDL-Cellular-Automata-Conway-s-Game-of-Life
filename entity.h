@@ -27,8 +27,10 @@ public:
 	void setWidth(int width) { this->width = width; return; }
 
 	Uint32 getColor() { return color; }
-
 	void setColor(Uint32 color) { this->color = color; return; }
+
+	void setUnderColor(Uint32 color) { this->underColor = color; return; }
+	Uint32 getUnderColor() { return underColor; }
 
 private:
 	int x;
@@ -41,5 +43,6 @@ private:
 	int width;
 
 	Uint32 color;
+	Uint32 underColor;
 };
 

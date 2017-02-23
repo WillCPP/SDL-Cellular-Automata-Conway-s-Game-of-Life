@@ -15,53 +15,52 @@ player::player(int x, int y, int l, int w, Uint32 c) : entity(x, y, l, w, c)
 {
 }
 
-
 player::~player()
 {
 }
 
-void player::moveUp()
+bool player::moveUp()
 {
 	setShadow();
 	if (this->getY() - this->getLength() < 0)
 	{
-		return;
+		return false;
 	}
 	this->setY(this->getY() - this->getLength());
-	return;
+	return true;
 }
 
-void player::moveDown()
+bool player::moveDown()
 {
 	setShadow();
-	if (this->getY() + this->getLength() >= 600)
+	if (this->getY() + this->getLength() >= 608)
 	{
-		return;
+		return false;
 	}
 	this->setY(this->getY() + this->getLength());
-	return;
+	return true;
 }
 
-void player::moveLeft()
+bool player::moveLeft()
 {
 	setShadow();
 	if (this->getX() - this->getWidth() < 0)
 	{
-		return;
+		return false;
 	}
 	this->setX(this->getX() - this->getWidth());
-	return;
+	return true;
 }
 
-void player::moveRight()
+bool player::moveRight()
 {
 	setShadow();
 	if (this->getX() + this->getWidth() >= 800)
 	{
-		return;
+		return false;
 	}
 	this->setX(this->getX() + this->getWidth());
-	return;
+	return true;
 }
 
 void player::setShadow()

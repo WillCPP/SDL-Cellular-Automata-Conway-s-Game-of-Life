@@ -1,7 +1,12 @@
-﻿  app.cpp
-c:\users\will\documents\visual studio 2015\projects\sdl_cellular_automata_project\app.cpp(63): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\will\documents\visual studio 2015\projects\sdl_cellular_automata_project\app.cpp(68): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\will\documents\visual studio 2015\projects\sdl_cellular_automata_project\app.cpp(73): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\will\documents\visual studio 2015\projects\sdl_cellular_automata_project\app.cpp(78): warning C4553: '==': operator has no effect; did you intend '='?
-  SDL_sandbox.vcxproj -> C:\Users\Will\Documents\Visual Studio 2015\Projects\SDL_cellular_automata_project\Debug\SDL_sandbox.exe
-  SDL_sandbox.vcxproj -> C:\Users\Will\Documents\Visual Studio 2015\Projects\SDL_cellular_automata_project\Debug\SDL_sandbox.pdb (Partial PDB)
+﻿  player.cpp
+  app.cpp
+  main.cpp
+  entity.cpp
+  CellContainer.cpp
+c:\users\will\documents\visual studio 2015\projects\sdl_cellular_automata_project\cellcontainer.cpp(38): warning C4018: '<': signed/unsigned mismatch
+c:\users\will\documents\visual studio 2015\projects\sdl_cellular_automata_project\cellcontainer.cpp(233): warning C4018: '<': signed/unsigned mismatch
+c:\users\will\documents\visual studio 2015\projects\sdl_cellular_automata_project\cellcontainer.cpp(241): warning C4018: '<': signed/unsigned mismatch
+  cell.cpp
+  Generating Code...
+  SDL_sandbox.vcxproj -> C:\Users\Will\Documents\Visual Studio 2015\Projects\SDL_cellular_automata_project\Debug\SDL_cellular_automata.exe
+  SDL_sandbox.vcxproj -> C:\Users\Will\Documents\Visual Studio 2015\Projects\SDL_cellular_automata_project\Debug\SDL_cellular_automata.pdb (Partial PDB)
