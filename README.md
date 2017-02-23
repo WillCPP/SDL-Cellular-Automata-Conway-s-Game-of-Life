@@ -9,3 +9,6 @@ This program is still in development.
 
 ## What's Included?
 This repository includes the source code, a visual studio project, a compiled debug version of the program, and a release version of the program
+
+## In Action
+See the media folder [here](/media) for screenshots of working examples.
